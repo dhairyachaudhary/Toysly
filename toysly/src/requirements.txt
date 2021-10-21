@@ -52,6 +52,7 @@ Pillow==7.0.0
 ply==3.11
 prompt-toolkit==2.0.10
 protobuf==3.6.1
+psycopg2==2.9.1
 pycairo==1.16.2
 pycrypto==2.6.1
 pycups==1.9.73
