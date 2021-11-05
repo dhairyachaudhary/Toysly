@@ -7,7 +7,7 @@ def store_view(request):
 
 def add_product(request):
     if request.method=='POST':
-        """
+
         context = {
             'product_details_form': forms.ProductForm(request.POST, request.FILES),
             'product_images_form': forms.ProductImagesForm(request.POST, request.FILES)
@@ -16,9 +16,10 @@ def add_product(request):
             context['product_details_form'].save()
             images = request.FILES.getlist('image')
             for i in images:
-                image_instance = context['product_images_form'](image=i)
+                context['product_images_form'].image=i
+                image_instance = context['product_images_form']
                 image_instance.save()
-        """
+
         return redirect('store:store')
     else:
         context = {
