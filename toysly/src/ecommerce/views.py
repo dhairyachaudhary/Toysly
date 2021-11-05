@@ -14,12 +14,14 @@ def add_product(request):
         }
         if context['product_details_form'].is_valid() and context['product_images_form'].is_valid():
             context['product_details_form'].save()
+            """
             images = request.FILES.getlist('image')
             for i in images:
+                context['product_images_form'].product=context['product_details_form']
                 context['product_images_form'].image=i
                 image_instance = context['product_images_form']
                 image_instance.save()
-
+            """
         return redirect('store:store')
     else:
         context = {

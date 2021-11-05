@@ -11,22 +11,19 @@ def product_image_path(instance, image_id):
 
 
 class Buyer(models.Model):
-	buyer_id = models.CharField(primary_key=True, max_length=100)
 	user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 	gender = models.CharField(max_length=100)
 	def __str__(self):
-		return self.buyer_id+' '+self.user.first_name
+		return self.id+' '+self.user.first_name
 
 class Seller(models.Model):
-	seller_id = models.CharField(primary_key=True, max_length=100)
 	user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 	agency_name = models.CharField(max_length=100)
 	approval_doc = models.FileField(upload_to=seller_doc_path)
 	def __str__(self):
-		return self.seller_id+' '+self.user.first_name
+		return self.id+' '+self.user.first_name
 
 class Product(models.Model):
-	product_id = models.CharField(primary_key=True, max_length=100)
 	product_name = models.CharField(max_length=100)
 	product_brand = models.CharField(max_length=100)
 	product_description = models.TextField()
@@ -35,21 +32,18 @@ class Product(models.Model):
 	#product_rating = models.IntegerField()
 	product_delivery_time = models.IntegerField()
 	def __str__(self):
-		return self.product_id+' '+self.product_name
+		return str(self.id) + ' ' + self.product_name
 
 class ProductImage(models.Model):
 	product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
-	image_id = models.CharField(max_length=100)
 	image = models.ImageField(upload_to=product_image_path)
 
 class Category(models.Model):
-	category_id = models.CharField(primary_key=True, max_length=100)
 	category_name = models.CharField(max_length=100)
 	def __str__(self):
-		return self.category_id+' '+self.category_name
+		return self.category_name
 
 class Order(models.Model):
-	order_id = models.CharField(primary_key=True, max_length=100)
 	order_amount = models.DecimalField(max_digits=10, decimal_places=2)
 	order_timestamp = models.DateTimeField(auto_now_add=True)
 	delivery_date = models.DateField(auto_now=False, auto_now_add=False)
