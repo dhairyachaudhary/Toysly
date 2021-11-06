@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 
 def seller_doc_path(instance):
     # file will be uploaded to MEDIA_ROOT/'seller_documents'/seller_<id>
-    return 'seller_documents/seller_{0}'.format(instance.seller_id)
+    return 'seller_documents/seller_{0}'.format(instance.id)
 
 def product_image_path(instance, image_id):
     # file will be uploaded to MEDIA_ROOT/'product_images'/product_<id>/<image_id>
-    return 'product_images/product_{0}/{1}'.format(instance.product.product_id, instance.image_id)
+    return 'product_images/product_{0}/{1}'.format(instance.product.id, instance.product_image_name)
 
 
 class Buyer(models.Model):
@@ -29,14 +29,16 @@ class Product(models.Model):
 	product_description = models.TextField()
 	product_price = models.DecimalField(max_digits=10, decimal_places=2)
 	product_quantity_available = models.DecimalField(max_digits=10, decimal_places=0)
-	#product_rating = models.IntegerField()
 	product_delivery_time = models.IntegerField()
 	def __str__(self):
 		return str(self.id) + ' ' + self.product_name
 
 class ProductImage(models.Model):
 	product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
+	product_image_name = models.CharField(max_length=100,default='0')
 	image = models.ImageField(upload_to=product_image_path)
+	def __str__(self):
+		return str(self.id) + ' ' + str(self.product.id)
 
 class Category(models.Model):
 	category_name = models.CharField(max_length=100)
