@@ -10,7 +10,8 @@ class ProductForm(forms.ModelForm):
 class ProductImagesForm(forms.ModelForm):
 	class Meta:
 		model = models.ProductImage
-		fields = ['image']
+		fields = ['image','product_image_name']
 		widgets = {
             'image': ClearableFileInput(attrs={'multiple': True}),
+            'product_image_name': forms.HiddenInput(),
         }
