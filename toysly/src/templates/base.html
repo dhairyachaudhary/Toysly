@@ -1,3 +1,4 @@
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,19 @@
 	<title>Toysly</title>
 </head>
 <body>
+	<header class="wrapper">
+		<h1>TOYSLY</h1>
+		<nav>
+			<ul>
+				<li>
+					<form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+						{% csrf_token %}
+						<button type="submit">Logout</button>
+					</form>
+				</li>
+			</ul>
+		</nav>
+	</header>
 	<div class="wrapper">
 		{% block content %}
 		{% endblock %}
