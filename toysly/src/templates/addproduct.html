@@ -5,8 +5,8 @@
 		<h1>Add Product</h1>
 		<form class="add-form" action="{% url 'store:add_product' %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
-			{{ product_details_form }}
-			{{ product_images_form }}
+			{{ product_details_form.as_p }}
+			{{ product_images_form.as_p }}
 			<input type="submit" value="add">
 		</form>
 	</div>
