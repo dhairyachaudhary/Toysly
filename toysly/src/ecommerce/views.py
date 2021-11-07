@@ -15,7 +15,9 @@ def add_product(request):
             'product_images_form': forms.ProductImagesForm(request.POST, request.FILES)
         }
         if context['product_details_form'].is_valid() and context['product_images_form'].is_valid():
-            prod_instance = context['product_details_form'].save()
+            prod_instance = context['product_details_form'].save(commit=False)
+            prod_instance.product_seller = request.user
+            prod_instance.save()
             images = request.FILES.getlist('image')
             ctr = 0
             for i in range(len(images)):
