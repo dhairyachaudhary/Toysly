@@ -2,7 +2,7 @@
 
 {% block content %} 
     <h1>Log in</h1>
-    <form class="site-form" action="{% url 'accounts:login' %}"" method="post">
+    <form class="site-form" action="{% url 'accounts:login' %}" method="post">
         {% csrf_token %}
         {{form}}
         <input type="submit" value="Login">
