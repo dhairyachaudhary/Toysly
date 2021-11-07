@@ -6,12 +6,6 @@ def product_image_path(instance, x):
     return 'product_images/product_{0}/{1}'.format(instance.product.id, instance.product_image_name)
 
 
-class Buyer(models.Model):
-	user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
-	gender = models.CharField(max_length=100)
-	def __str__(self):
-		return self.id+' '+self.user.first_name
-
 class Product(models.Model):
 	product_name = models.CharField(max_length=100)
 	product_brand = models.CharField(max_length=100)
@@ -51,6 +45,6 @@ class Shipping_Details(models.Model):
 #	order = models.ForeignKey(Order,on_delete=models.CASCADE,default=None)
 
 class Cart(models.Model):
-	buyer = models.ForeignKey(Buyer,on_delete=models.CASCADE,primary_key=True,default=None)
+	user = models.ForeignKey(User,on_delete=models.CASCADE,primary_key=True,default=None)
 	product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
 	cart_total = models.DecimalField(max_digits=10, decimal_places=2)
