@@ -5,6 +5,15 @@ from . import forms
 from ecommerce.models import Product
 
 def store_view(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        amount = 50000
+
+        client = razorpay.Client(
+            auth=("rzp_test_ynwI52voLx0Ltq", "IhbQPZoMLmDn2dgmRhhI7IpU"))
+
+        payment = client.order.create({'amount': amount, 'currency': 'USD',
+                                       'payment_capture': '1'})
     products = Product.objects.all().order_by('product_name');
     return render(request,'ecommerce/index.html',{ 'products': products })
 

@@ -49,7 +49,27 @@
 					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
 					<h4 style="font-size: 10px">{{ product.product_category }} | ${{ product.product_price }}</h4>
 					<h5 style="font-size: 10px">{{ product.product_description }}</h5>
-					<a style="padding-right: 60px;" href="#"><h3 style="font-size: 15px">Buy Now</h3></a>
+					<form class="text-center border border-light p-5" actiom="success.html" method="POST">
+        {% csrf_token %}
+
+        <input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name">
+        <script src="https://checkout.razorpay.com/v1/checkout.js" 
+        data-key="rzp_test_ynwI52voLx0Ltq" 
+        data-amount="{{ product.product_price}}"
+        x=float(data-amount)*100
+        data-amount=str(x) 
+        data-currency="USD" 
+        data-order_id="{{payment.id}}" 
+        data-buttontext="Pay with Razorpay"
+        data-name="Professional Cipher"
+        data-description="Django and Data Science"
+        data-image="https://example.com/your_logo.jpg" 
+        data-prefill.name="PC"
+        data-prefill.email="rishit19091@iiitd.ac.in" 
+        data-theme.color="#F37254"></script>
+
+    </form>
+					<!-- <a style="padding-right: 60px;" href="#"><h3 style="font-size: 15px">Buy Now</h3></a> -->
 				</div>
 			{% endif %}
 			{% endfor %}
