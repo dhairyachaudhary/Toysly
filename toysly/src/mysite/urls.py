@@ -21,8 +21,23 @@ from django.conf.urls.static import static
 from django.conf import settings
 from . import views
 
+# admin login using 2FA
+from django_otp.admin import OTPAdminSite
+
+class OTPAdmin(OTPAdminSite):
+    pass
+
+from django.contrib.auth.models import User
+from django_otp.plugins.otp_totp.models import TOTPDevice
+
+otp_admin_site = OTPAdmin(name='OTPAdmin')
+
+for model_cls, model_admin in admin.site._registry.items():
+   otp_admin_site.register(model_cls, model_admin.__class__)
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', otp_admin_site.urls),
+    path('dadmin/', admin.site.urls),
     path('',views.home,name="home"),
     path('about/',views.about,name="about"),
     path('store/', include('ecommerce.urls')),
