@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<div class="add-product">
-		<h1>Add Product</h1>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> Toysly </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../../../static/css/styles.css">
+	<link rel="stylesheet" href="../../../static/css/style.css">
+	<link rel="stylesheet" href="../../../static/css/animate.css">
+	<link rel="stylesheet" href="../../../static/css/icomoon.css">
+	<link rel="stylesheet" href="../../../static/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../static/css/superfish.css">
+	<link rel="stylesheet" href="../../../static/css/flexslider.css">
+
+	</head>
+
+
+	<div class="add-product container" style="text-align: center;">
+		<h3 style="padding-top: 100px; text-align: center; padding-left: 75px;">Add Product</h3>
 		<form class="add-form" action="{% url 'store:add_product' %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{ product_details_form.as_p }}
-			<input type="submit" value="add">
+			<input style="text-align: center" type="submit" value="add">
 		</form>
 	</div>
 {% endblock %}

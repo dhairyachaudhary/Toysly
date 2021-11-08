@@ -18,26 +18,26 @@
 	<script src="static/js/modernizr-2.6.2.min.js"></script>
 	<header id="fh5co-header" role="banner">
 		<div class="center container" style="padding-left: 100px;">
-		<h1><a href="{% url 'home' %}"><img class="im" src="{% static 'images/toyslylogo.png' %}" alt="Toysly" /></a></h1>
+		<h1><a href="{% url 'home' %}"><img style="max-width: 30%; margin-top: -50px" src="{% static 'images/toyslylogo.png' %}" alt="Toysly" /></a></h1>
 	</div>
-	<div class="container text-center" style="padding-left: 90px; padding-bottom: 15px;">
+	<div class="container text-center" style="padding-left: 90px; padding-bottom: 2px;">
 		<nav>
 			<ul>
 				{% if user.is_authenticated %}
-				<li style="font-size: 25px;">
+				<li style="font-size: 15px;">
 					<form class="logout-link, center" action="{% url 'accounts:logout' %}" method="post">
 						{% csrf_token %}
 						<button type="submit">Logout</button>
 					</form>
 				</li>
-				<li style="font-size: 25px;"><a href="{% url 'accounts:become_seller' %}" class="highlight">Become A Seller!</a></li>
-				<li style="font-size: 25px;"><a href="{% url 'store:add_product' %}" class="highlight">Add Product</a></li>
-				<li style="font-size: 25px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
+				<li style="font-size: 15px;"><a href="{% url 'accounts:become_seller' %}" class="highlight">Become A Seller!</a></li>
+				<li style="font-size: 15px;"><a href="{% url 'store:add_product' %}" class="highlight">Add Product</a></li>
+				<li style="font-size: 15px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
 
 				{% else %}
-				<li style="font-size: 25px;"> <a href="{% url 'accounts:login' %}">Login</a></li> 
-                <li style="font-size: 25px;"><a href="{% url 'accounts:signup' %}">Signup</a></li>
-                <li style="font-size: 25px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
+				<li style="font-size: 15px;"> <a href="{% url 'accounts:login' %}">Login</a></li> 
+                <li style="font-size: 15px;"><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                <li style="font-size: 15px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
 
 				{% endif %}
 			</ul>

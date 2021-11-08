@@ -2,9 +2,7 @@
 {% load static %}
 {% block content %}
 	<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -28,18 +26,13 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="static/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="static/css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="static/css/bootstrap.css">
-	<!-- Superfish -->
-	<link rel="stylesheet" href="static/css/superfish.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="static/css/flexslider.css">
-
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="../../../static/css/styles.css">
+	<link rel="stylesheet" href="../../../static/css/style.css">
+	<link rel="stylesheet" href="../../../static/css/animate.css">
+	<link rel="stylesheet" href="../../../static/css/icomoon.css">
+	<link rel="stylesheet" href="../../../static/css/bootstrap.css">
+	<link rel="stylesheet" href="../../../static/css/superfish.css">
+	<link rel="stylesheet" href="../../../static/css/flexslider.css">
 
 
 	</head>
@@ -51,18 +44,16 @@
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
 			{% for product in products %}
 				<div class="fh5co-project masonry-brick">
-					<img src="{{ product.product_image_1.url }}">
-					<img src="{{ product.product_image_2.url }}">
-					<h2>{{ product.product_name }}| {{ product.product_brand }}</h2>
-					<h4>{{ product.product_category }} | ${{ product.product_price }}</h4>
-					<h5>{{ product.product_description }}</h5>
-					<a href="#"><h3>Buy Now</h3></a>
+					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_1.url }}">
+					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_2.url }}">
+					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
+					<h4 style="font-size: 10px">{{ product.product_category }} | ${{ product.product_price }}</h4>
+					<h5 style="font-size: 10px">{{ product.product_description }}</h5>
+					<a style="padding-right: 60px; font-size: 15px;"  href="#"><h3 style="font-size: 15px">Buy Now</h3></a>
 				</div>
 			 {% endfor %}
 			</div>
-			<!--END .fh5co-projects-feed-->
 		</div>
-		<!-- END .container-fluid -->
 
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="container-fluid">
@@ -73,13 +64,9 @@
 		</footer>
 
 
-		<!-- jQuery -->
 	<script src="static/js/jquery.min.js"></script>
-	<!-- Bootstrap -->
 	<script src="static/js/bootstrap.min.js"></script>
-	<!-- masonry -->
 	<script src="static/js/jquery.masonry.min.js"></script>
-	<!-- MAIN JS -->
 	<script src="static/js/main.js"></script>
 		
 

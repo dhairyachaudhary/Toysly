@@ -1,10 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Signup</h1>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Toysly </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../../static/css/styles.css">
+    <link rel="stylesheet" href="../../../static/css/style.css">
+    <link rel="stylesheet" href="../../../static/css/animate.css">
+    <link rel="stylesheet" href="../../../static/css/icomoon.css">
+    <link rel="stylesheet" href="../../../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../static/css/superfish.css">
+    <link rel="stylesheet" href="../../../static/css/flexslider.css">
+
+    </head>
+
+    <div style="text-align: center;">
+    <h3 style="padding-top: 100px;">Signup</h3>
     <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
         {% csrf_token %}
         {{form}}
         <input type="submit" value="signup">
     </form>
+    <div>
 {% endblock %}
