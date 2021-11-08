@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> Toysly </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link rel="shortcut icon" href="static/favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="static/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="static/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="static/css/bootstrap.css">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="static/css/superfish.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="static/css/flexslider.css">
+
+	<link rel="stylesheet" href="static/css/style.css">
+
+
+	</head>
+	<body>
+		<script src="static/js/modernizr-2.6.2.min.js"></script>
+
+
+		<div class="container-fluid pt70 pb70">
+			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+			{% for product in products %}
+				<div class="fh5co-project masonry-brick">
+					<img src="{{ product.product_image_1.url }}">
+					<img src="{{ product.product_image_2.url }}">
+					<h2>{{ product.product_name }}| {{ product.product_brand }}</h2>
+					<h4>{{ product.product_category }} | ${{ product.product_price }}</h4>
+					<h5>{{ product.product_description }}</h5>
+					<a href="#"><h3>Buy Now</h3></a>
+				</div>
+			 {% endfor %}
+			</div>
+			<!--END .fh5co-projects-feed-->
+		</div>
+		<!-- END .container-fluid -->
+
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="container-fluid">
+				<div class="footer-content">
+					<div class="copyright"><small>&copy; 2021 Toysly. All Rights Reserved</small></div>
+				</div>
+			</div>
+		</footer>
+
+
+		<!-- jQuery -->
+	<script src="static/js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script src="static/js/bootstrap.min.js"></script>
+	<!-- masonry -->
+	<script src="static/js/jquery.masonry.min.js"></script>
+	<!-- MAIN JS -->
+	<script src="static/js/main.js"></script>
+		
+
+
+	</body>
+</html>
+{% endblock %}

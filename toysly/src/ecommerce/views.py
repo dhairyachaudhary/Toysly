@@ -2,9 +2,16 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
+from ecommerce.models import Product
 
 def store_view(request):
-    return HttpResponse('Store')
+    products = Product.objects.all().order_by('product_name');
+    return render(request,'ecommerce/index.html',{ 'products': products })
+
+
+def toys_view(request):
+    products = Product.objects.all().order_by('product_name');
+    return render(request,'ecommerce/toys.html',{ 'products': products })
 
 @login_required(login_url="/accounts/login/")
 @permission_required("ecommerce.can_add_product", login_url="/accounts/become-seller/")
@@ -15,10 +22,12 @@ def add_product(request):
             'product_details_form': forms.ProductForm(request.POST, request.FILES),
             'product_images_form': forms.ProductImagesForm(request.POST, request.FILES)
         }
-        if context['product_details_form'].is_valid() and context['product_images_form'].is_valid():
+        # if context['product_details_form'].is_valid() and context['product_images_form'].is_valid():
+        if context['product_details_form'].is_valid():
             prod_instance = context['product_details_form'].save(commit=False)
             prod_instance.product_seller = request.user
             prod_instance.save()
+            """
             images = request.FILES.getlist('image')
             ctr = 0
             for i in range(len(images)):
@@ -28,6 +37,7 @@ def add_product(request):
                 image_instance.product = prod_instance
                 image_instance.save()
                 ctr += 1
+            """
         return redirect('store:store')
     else:
         context = {
