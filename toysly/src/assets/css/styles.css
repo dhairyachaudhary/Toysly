@@ -19,3 +19,50 @@ a, a:hover, a:visited{
 .im{
     max-width: 20%;
 }
+
+
+
+#fh5co-header {
+  padding-top: 40px;
+  margin-bottom: 30px;
+}
+#fh5co-header #fh5co-logo img {
+  max-width: 100%;
+}
+#fh5co-header nav {
+  padding-top: 20px;
+}
+#fh5co-header nav ul {
+  padding: 0;
+  margin: 0;
+}
+#fh5co-header nav ul li {
+  padding: 0;
+  margin: 0;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  list-style: none;
+  font-size: 15px;
+}
+#fh5co-header nav ul li a {
+  color: #999999 !important;
+  padding: 10px;
+}
+@media screen and (max-width: 480px) {
+  #fh5co-header nav ul li a {
+    padding: 5px;
+  }
+}
+#fh5co-header nav ul li a:hover, #fh5co-header nav ul li a:active, #fh5co-header nav ul li a:focus {
+  color: #000 !important;
+  text-decoration: none;
+  outline: none;
+}
+#fh5co-header nav ul li.active a {
+  text-decoration: line-through !important;
+  color: black !important;
+}
+
+

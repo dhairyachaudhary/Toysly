@@ -6,12 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Toysly</title>
 	<link rel="stylesheet" href="static/css/styles.css">
+	<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-	<header class="wrapper">
+	<header class="wrapper" id="fh5co-header" role="banner">
 		<div class="center">
 		<h1><a href="{% url 'home' %}"><img class="im" src="{% static 'images/toyslylogo.png' %}" alt="Toysly" /></a></h1>
 	</div>
+	<div class="container text-center">
 		<nav>
 			<ul>
 				{% if user.is_authenticated %}
@@ -23,13 +25,17 @@
 				</li>
 				<li><a href="{% url 'accounts:become_seller' %}" class="highlight">Become A Seller!</a></li>
 				<li><a href="{% url 'store:add_product' %}" class="highlight">Add Product</a></li>
-				
+				<li><a href="{% url 'about' %}" class="highlight">About</a></li>
+
 				{% else %}
 				<div class="center"><li> <a href="{% url 'accounts:login' %}">Login</a></li> </div>
                 <div class="center"><li><a href="{% url 'accounts:signup' %}">Signup</a></li> </div>
+                <li><a href="{% url 'about' %}" class="highlight">About</a></li>
+
 				{% endif %}
 			</ul>
 		</nav>
+		</div>
 	</header>
 	<div class="wrapper">
 		{% block content %}
