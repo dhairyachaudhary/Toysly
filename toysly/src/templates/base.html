@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header class="wrapper">
-		<h1>TOYSLY</h1>
+		<h1><a href="{% url 'home' %}"><img src="{% static 'toyslylogo.png' %}" alt="Toysly" /></a></h1>
 		<nav>
 			<ul>
 				{% if user.is_authenticated %}
