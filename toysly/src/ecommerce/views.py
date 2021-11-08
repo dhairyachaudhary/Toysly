@@ -34,4 +34,4 @@ def add_product(request):
             'product_details_form': forms.ProductForm(),
             'product_images_form': forms.ProductImagesForm()
         }
-    return render(request,'addproduct.html',context)
+    return render(request,'ecommerce/addproduct.html',context)
