@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
 
 def store_view(request):
     return HttpResponse('Store')
 
 @login_required(login_url="/accounts/login/")
+@permission_required("ecommerce.can_add_product", login_url="/accounts/become-seller/")
 def add_product(request):
     if request.method=='POST':
 
