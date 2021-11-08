@@ -2,9 +2,6 @@
 {% load static %}
 {% block content %}
 	<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
@@ -24,22 +21,8 @@
 
 	<link rel="shortcut icon" href="static/favicon.ico">
 
-	<link href='https://fonts.googleapis.com/css?family=Mountains of Christmas' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="static/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="static/css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="static/css/bootstrap.css">
-	<!-- Superfish -->
-	<link rel="stylesheet" href="static/css/superfish.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="static/css/flexslider.css">
-
-	<link rel="stylesheet" href="static/css/style.css">
 
 
 	</head>
@@ -47,18 +30,16 @@
 		<script src="static/js/modernizr-2.6.2.min.js"></script>
 
 
-		<div class="container-fluid pt70 pb70">
-			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+		<div class="container-fluid pt70 pb70" style="text-align: center;">
+			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry container" style="text-align: center;"> 
 			{% for category in categories %}
-				<div class="fh5co-project masonry-brick">
-					<img src="{{ category.category_image.url }}">
-					<a href="{% url 'store:toys' %}"><h2>{{ category.category_name }}</h2></a>
+				<div class="fh5co-project masonry-brick" style="text-align: center;">
+					<img src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;">
+					<a href="{% url 'store:toys' %}" style="padding-left: 200px"><h2>{{ category.category_name }}</h2></a>
 				</div>
 			 {% endfor %}
 			</div>
-			<!--END .fh5co-projects-feed-->
 		</div>
-		<!-- END .container-fluid -->
 
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="container-fluid">
@@ -69,13 +50,9 @@
 		</footer>
 
 
-		<!-- jQuery -->
 	<script src="static/js/jquery.min.js"></script>
-	<!-- Bootstrap -->
 	<script src="static/js/bootstrap.min.js"></script>
-	<!-- masonry -->
 	<script src="static/js/jquery.masonry.min.js"></script>
-	<!-- MAIN JS -->
 	<script src="static/js/main.js"></script>
 		
 

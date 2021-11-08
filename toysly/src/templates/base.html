@@ -7,35 +7,49 @@
 	<title>Toysly</title>
 	<link rel="stylesheet" href="static/css/styles.css">
 	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="static/css/animate.css">
+	<link rel="stylesheet" href="static/css/icomoon.css">
+	<link rel="stylesheet" href="static/css/bootstrap.css">
+	<link rel="stylesheet" href="static/css/superfish.css">
+	<link rel="stylesheet" href="static/css/flexslider.css">
+
 </head>
 <body>
-	<header class="wrapper" id="fh5co-header" role="banner">
-		<div class="center">
+	<script src="static/js/modernizr-2.6.2.min.js"></script>
+	<header id="fh5co-header" role="banner">
+		<div class="center container" style="padding-left: 100px;">
 		<h1><a href="{% url 'home' %}"><img class="im" src="{% static 'images/toyslylogo.png' %}" alt="Toysly" /></a></h1>
 	</div>
-	<div class="container text-center">
+	<div class="container text-center" style="padding-left: 90px; padding-bottom: 15px;">
 		<nav>
 			<ul>
 				{% if user.is_authenticated %}
-				<li>
+				<li style="font-size: 25px;">
 					<form class="logout-link, center" action="{% url 'accounts:logout' %}" method="post">
 						{% csrf_token %}
 						<button type="submit">Logout</button>
 					</form>
 				</li>
-				<li><a href="{% url 'accounts:become_seller' %}" class="highlight">Become A Seller!</a></li>
-				<li><a href="{% url 'store:add_product' %}" class="highlight">Add Product</a></li>
-				<li><a href="{% url 'about' %}" class="highlight">About</a></li>
+				<li style="font-size: 25px;"><a href="{% url 'accounts:become_seller' %}" class="highlight">Become A Seller!</a></li>
+				<li style="font-size: 25px;"><a href="{% url 'store:add_product' %}" class="highlight">Add Product</a></li>
+				<li style="font-size: 25px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
 
 				{% else %}
-				<div class="center"><li> <a href="{% url 'accounts:login' %}">Login</a></li> </div>
-                <div class="center"><li><a href="{% url 'accounts:signup' %}">Signup</a></li> </div>
-                <li><a href="{% url 'about' %}" class="highlight">About</a></li>
+				<li style="font-size: 25px;"> <a href="{% url 'accounts:login' %}">Login</a></li> 
+                <li style="font-size: 25px;"><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                <li style="font-size: 25px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
 
 				{% endif %}
 			</ul>
 		</nav>
 		</div>
+
+		<div class="container" style="margin-bottom: -125px;">
+
+		<hr>
+
+	</div>
+
 	</header>
 	<div class="wrapper">
 		{% block content %}
