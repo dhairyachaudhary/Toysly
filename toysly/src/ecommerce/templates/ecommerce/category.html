@@ -49,7 +49,7 @@
 					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
 					<h4 style="font-size: 10px">{{ product.product_category }} | {{ product.product_price }} cents</h4>
 					<h5 style="font-size: 10px">{{ product.product_description }}</h5>
-					<form class="text-center border border-light p-5" action="success.html" method="POST">
+					<form class="text-center border border-light p-5" action="{% url 'store:success' %}" method="POST">
         {% csrf_token %}
 
         <script src="https://checkout.razorpay.com/v1/checkout.js" 
