@@ -36,10 +36,12 @@
 				<div class="fh5co-project masonry-brick" style="padding-left: 100px;">
 					<a href="{% url 'store:category' category.category_slug %}"><img style="max-width: 40vh" src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;"></a>
 					<a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px"><h2>{{ category.category_name }}</h2></a>
+					<a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px; background-color: seagreen; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; display: inline-block; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; vertical-align: baseline; white-space: nowrap;">{{ category.category_name }} </a>
 				</div>
 			 {% endfor %}
 			</div>
 		</div>
+
 
 		<footer id="fh5co-footer" role="contentinfo">
 		<div class="container-fluid">
