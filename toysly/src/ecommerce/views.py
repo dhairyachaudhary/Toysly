@@ -92,20 +92,16 @@ def add_product(request):
 
 def success_view(request):
     val=request.POST
-    print(val['razorpay_payment_id'])
-    print("HELLOOOOOOO")
+    user = request.user
+    product_id = val['product']
+    user_id = request.user.id
     client = razorpay.Client(auth=("rzp_test_ynwI52voLx0Ltq", "IhbQPZoMLmDn2dgmRhhI7IpU"))
     payment_id = val['razorpay_payment_id']
     resp = client.payment.fetch(payment_id)
     print(resp)
     resp['created_at']=time.ctime(resp['created_at'])
     with open('transaction_logs.txt', 'a') as convert_file:
+        convert_file.write("{'product_id':"+str(product_id)+"'user_id':"+str(user_id)+"}")
         convert_file.write(json.dumps(resp))
         convert_file.write("\n\n")
-    return render(request,'ecommerce/success.html')
-
-
-def success_view2(request):
-    print("HI")
-    print(request)
     return render(request,'ecommerce/success.html')

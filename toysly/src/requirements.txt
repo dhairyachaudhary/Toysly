@@ -86,6 +86,7 @@ pytz==2019.3
 pyxdg==0.26
 PyYAML==5.3.1
 qrcode==7.3.1
+razorpay==1.2.0
 reportlab==3.5.34
 requests==2.22.0
 requests-unixsocket==0.2.0
