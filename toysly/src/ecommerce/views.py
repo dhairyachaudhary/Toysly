@@ -4,6 +4,25 @@ from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
 from ecommerce.models import Product,Category
 
+def check_search(query, item):
+    query = query.lower()
+    name = item.product_name.lower()
+    category = item.product_category.category_name.lower()
+    description = item.product_description.lower()
+    if query in name or query in category or query in description:
+        return True
+    else:
+        return False
+"""
+def search_view(request):
+    query = request.GET.get('search')
+    if len(query) > 200:
+        products = []
+    else:
+        all_products = Product.objects.all().order_by('product_name')
+        products = [item for item in all_products if check_search(query,item)]
+    return render(request,'ecommerce/index.html',{ 'products': products })
+"""
 def store_view(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -14,8 +33,20 @@ def store_view(request):
 
         payment = client.order.create({'amount': amount, 'currency': 'USD',
                                        'payment_capture': '1'})
-    products = Product.objects.all().order_by('product_name');
-    return render(request,'ecommerce/index.html',{ 'products': products })
+    else:
+        query = request.GET.get('search')
+        if query:
+            if len(query) > 200 or len(query) < 3:
+                products = []
+            else:
+                all_products = Product.objects.all().order_by('product_name')
+                products = [item for item in all_products if check_search(query,item)]
+        else:
+            products = Product.objects.all().order_by('product_name')
+    if len(products) == 0:
+        return render(request,'ecommerce/nonefound.html')
+    else:
+        return render(request,'ecommerce/index.html',{ 'products': products})
 
 
 def category_view(request, category):
