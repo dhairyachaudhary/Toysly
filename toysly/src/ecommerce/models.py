@@ -33,6 +33,11 @@ class Product(models.Model):
 	def __str__(self):
 		return str(self.id) + ' ' + self.product_name
 
+class Payment(models.Model):
+	payement_user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+	payment_product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
+	payment_time = models.DateTimeField()
+
 """
 class ProductImage(models.Model):
 	product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
