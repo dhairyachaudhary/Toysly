@@ -54,7 +54,6 @@
 					<form class="text-center border border-light p-5" action="{% url 'store:success' %}" method="POST">
         {% csrf_token %}
 
-        <input type="name" name="name" id="name" required class="form-control mb-4" placeholder="Name">
         <script src="https://checkout.razorpay.com/v1/checkout.js" 
         data-key="rzp_test_ynwI52voLx0Ltq" 
         data-amount="{{ product.product_price}}"
