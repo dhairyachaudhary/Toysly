@@ -26,13 +26,14 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	
-	<link rel="stylesheet" href="../../../static/css/styles.css">
-	<link rel="stylesheet" href="../../../static/css/style.css">
-	<link rel="stylesheet" href="../../../static/css/animate.css">
-	<link rel="stylesheet" href="../../../static/css/icomoon.css">
-	<link rel="stylesheet" href="../../../static/css/bootstrap.css">
-	<link rel="stylesheet" href="../../../static/css/superfish.css">
-	<link rel="stylesheet" href="../../../static/css/flexslider.css">
+	<link rel="stylesheet" href="../static/css/styles.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/animate.css">
+	<link rel="stylesheet" href="../static/css/icomoon.css">
+	<link rel="stylesheet" href="../static/css/bootstrap.css">
+	<link rel="stylesheet" href="../static/css/superfish.css">
+	<link rel="stylesheet" href="../static/css/flexslider.css">
+
 
 
 	</head>
@@ -46,7 +47,7 @@
 	    	</form>    	
 			{% for product in products %}
 				<div class="fh5co-project masonry-brick">
-					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_1.url }}">
+					<img style="width: 30vh; height: 30vh; padding-bottom: 10px" src="{{ product.product_image_1.url }}">
 					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_2.url }}">
 					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
 					<h4 style="font-size: 10px">{{ product.product_category }} | {{ product.product_price }} cents</h4>
@@ -70,11 +71,11 @@
         data-theme.color="#F37254"></script>
 
     </form>
-					<!-- <a style="padding-right: 60px; font-size: 15px;"  href="#"><h3 style="font-size: 15px">Buy Now</h3></a> -->
 				</div>
 			 {% endfor %}
 			</div>
 		</div>
+
 
 
 	<script src="static/js/jquery.min.js"></script>
