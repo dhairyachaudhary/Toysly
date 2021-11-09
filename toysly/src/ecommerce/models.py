@@ -34,7 +34,7 @@ class Product(models.Model):
 		return str(self.id) + ' ' + self.product_name
 
 class Payment(models.Model):
-	payement_user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+	payment_user = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 	payment_product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
 	payment_time = models.DateTimeField()
 

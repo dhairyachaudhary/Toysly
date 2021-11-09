@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
 import razorpay
 import time
-from ecommerce.models import Product,Category
+from ecommerce.models import Product,Category,Payment
 import json
 
 def check_search(query, item):
@@ -98,10 +98,12 @@ def success_view(request):
     client = razorpay.Client(auth=("rzp_test_ynwI52voLx0Ltq", "IhbQPZoMLmDn2dgmRhhI7IpU"))
     payment_id = val['razorpay_payment_id']
     resp = client.payment.fetch(payment_id)
-    print(resp)
     resp['created_at']=time.ctime(resp['created_at'])
     with open('transaction_logs.txt', 'a') as convert_file:
         convert_file.write("{'product_id':"+str(product_id)+"'user_id':"+str(user_id)+"}")
         convert_file.write(json.dumps(resp))
         convert_file.write("\n\n")
+    product = Product.objects.filter(id=product_id)[0];
+    payment_instance = Payment.objects.create(payment_user=user,payment_product=product,payment_time=resp['created_at'])
+    payment_instance.save()
     return render(request,'ecommerce/success.html')
