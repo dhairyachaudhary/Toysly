@@ -48,7 +48,7 @@ Feel free to make bug reports on our issues. You can reach out to us in case you
 
 🎨 Dhairya: dhairya19035@iiitd.ac.in
 
-👴🏻 Karan: karan19366@iiitd.ac.in
+🌝 Karan: karan19366@iiitd.ac.in
 
 🧠 Kirthana: kirthana19053@iiitd.ac.in
 
