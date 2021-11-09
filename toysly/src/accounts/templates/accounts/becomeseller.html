@@ -18,9 +18,10 @@
 
     </head>
 
-    <div style="text-align: center; padding-left: 75px;">
-    <h3 style="padding-top: 100px">Become a Seller</h3>
-    <form class="become-seller" action="{% url 'accounts:become_seller' %}" method="post" enctype="multipart/form-data">
+    <h3 style="text-align: center; padding-left: 75px; padding-top: 100px">Become a Seller</h3>
+
+    <div style="padding-left: 75px;">
+    <form class="become-seller container" style="padding-left: 400px;" action="{% url 'accounts:become_seller' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ seller_form.as_p }}
         <input type="submit" value="Submit">
