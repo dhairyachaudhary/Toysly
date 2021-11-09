@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
+import razorpay
+import time
 from ecommerce.models import Product,Category
+import json
 
 def check_search(query, item):
     query = query.lower()
@@ -88,4 +91,21 @@ def add_product(request):
     return render(request,'ecommerce/addproduct.html',context)
 
 def success_view(request):
+    val=request.POST
+    print(val['razorpay_payment_id'])
+    print("HELLOOOOOOO")
+    client = razorpay.Client(auth=("rzp_test_ynwI52voLx0Ltq", "IhbQPZoMLmDn2dgmRhhI7IpU"))
+    payment_id = val['razorpay_payment_id']
+    resp = client.payment.fetch(payment_id)
+    print(resp)
+    resp['created_at']=time.ctime(resp['created_at'])
+    with open('transaction_logs.txt', 'a') as convert_file:
+        convert_file.write(json.dumps(resp))
+        convert_file.write("\n\n")
+    return render(request,'ecommerce/success.html')
+
+
+def success_view2(request):
+    print("HI")
+    print(request)
     return render(request,'ecommerce/success.html')
