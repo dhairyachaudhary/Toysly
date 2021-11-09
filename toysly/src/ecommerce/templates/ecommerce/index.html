@@ -41,9 +41,13 @@
 		<script src="static/js/modernizr-2.6.2.min.js"></script>
 		<div class="container-fluid pt70 pb70">
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
-			<form method="get" action="{% url 'store:store' %}" class="form-inline my-2 my-lg-0">
-			    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-			    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			<form method="get" action="{% url 'store:store' %}" class="form-inline my-2 my-lg-0 container" style="padding-bottom: 20px; padding-top: 10px; padding-left: 75px; text-align: center;">
+			    <input class="form-control mr-sm-2" type="search" placeholder="Toys, Books, Puzzles..." aria-label="Search" name="search">
+			    <button style="background-color: lightseagreen; width: 80px; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; font-size: 15px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 11.5px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; white-space: nowrap; margin-top: -65px;" type="submit">Search</button>
+
+<!-- <button style="background-color: lightseagreen; width: 80px; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; white-space: nowrap; margin-top: -65px;" role="button" type="submit"> {{ category.category_name }} </button> -->
+
+
 	    	</form>    	
 			{% for product in products %}
 				<div class="fh5co-project masonry-brick">
