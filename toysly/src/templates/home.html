@@ -33,10 +33,12 @@
 		<div class="container-fluid pt70 pb70" style="text-align: center;">
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry container" style="text-align: center;"> 
 			{% for category in categories %}
-				<div class="fh5co-project masonry-brick" style="padding-left: 100px;">
-					<a href="{% url 'store:category' category.category_slug %}"><img style="max-width: 40vh" src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;"></a>
-					<a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px"><h2>{{ category.category_name }}</h2></a>
-					<a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px; background-color: seagreen; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; display: inline-block; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; vertical-align: baseline; white-space: nowrap;">{{ category.category_name }} </a>
+				<div class="fh5co-project masonry-brick" style="padding-left: 100px; margin-top: -15px;">
+					<a href="{% url 'store:category' category.category_slug %}"><img style="max-width: 40vh; margin-bottom: -40px;" src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;"></a>
+					<!-- <a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px"><h2>{{ category.category_name }}</h2></a> -->
+					<div class="container" style="padding-right: 875px">
+					<a href="{% url 'store:category' category.category_slug %}" style="margin-top: -65px;"> <button style="background-color: lightseagreen; width: 80px; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; white-space: nowrap; margin-top: -65px;" role="button" type="submit"> {{ category.category_name }} </button> </a>
+				</div>
 				</div>
 			 {% endfor %}
 			</div>
