@@ -34,12 +34,20 @@
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry container" style="text-align: center;"> 
 			{% for category in categories %}
 				<div class="fh5co-project masonry-brick" style="padding-left: 100px;">
-					<img style="max-width: 40vh" src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;">
+					<a href="{% url 'store:category' category.category_slug %}"><img style="max-width: 40vh" src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;"></a>
 					<a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px"><h2>{{ category.category_name }}</h2></a>
 				</div>
 			 {% endfor %}
 			</div>
 		</div>
+
+		<footer id="fh5co-footer" role="contentinfo">
+		<div class="container-fluid">
+			<div class="footer-content">
+				<div class="copyright"><small>&copy; 2021 Toysly. All Rights Reserved</small></div>
+			</div>
+		</div>
+	</footer>
 
 
 	<script src="static/js/jquery.min.js"></script>
