@@ -36,7 +36,7 @@ def store_view(request):
     else:
         query = request.GET.get('search')
         if query:
-            if len(query) > 200 or len(query) < 3:
+            if len(query) > 100 or len(query) < 3:
                 products = []
             else:
                 all_products = Product.objects.all().order_by('product_name')
@@ -61,7 +61,7 @@ def add_product(request):
 
         context = {
             'product_details_form': forms.ProductForm(request.POST, request.FILES),
-            'product_images_form': forms.ProductImagesForm(request.POST, request.FILES)
+            # 'product_images_form': forms.ProductImagesForm(request.POST, request.FILES)
         }
         # if context['product_details_form'].is_valid() and context['product_images_form'].is_valid():
         if context['product_details_form'].is_valid():
