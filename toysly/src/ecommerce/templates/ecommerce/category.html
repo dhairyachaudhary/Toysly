@@ -44,8 +44,8 @@
 			{% for product in products %}
 			{% if product.product_category.category_slug == category %}
 				<div class="fh5co-project masonry-brick">
-					<img style="width: 30vh; height: 30vh; ; padding-bottom: 10px" src="{{ product.product_image_1.url }}">
-					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_2.url }}">
+					<img style="width: 38vh; height: 38vh; ; padding-bottom: 10px" src="{{ product.product_image_1.url }}">
+					<img style="width: 38vh; height: 38vh;" src="{{ product.product_image_2.url }}">
 					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
 					<h4 style="font-size: 10px">{{ product.product_category }} | {{ product.product_price }} cents</h4>
 					<h5 style="font-size: 10px">{{ product.product_description }}</h5>
