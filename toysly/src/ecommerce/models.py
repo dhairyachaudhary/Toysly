@@ -16,6 +16,7 @@ def category_image_path(instance, x):
 
 class Category(models.Model):
 	category_name = models.CharField(max_length=100)
+	category_slug = models.SlugField()
 	category_image = models.ImageField(upload_to=category_image_path,default=None)
 	def __str__(self):
 		return self.category_name
@@ -32,6 +33,7 @@ class Product(models.Model):
 	def __str__(self):
 		return str(self.id) + ' ' + self.product_name
 
+"""
 class ProductImage(models.Model):
 	product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
 	product_image_name = models.CharField(max_length=100,default='0')
@@ -52,10 +54,11 @@ class Shipping_Details(models.Model):
 	delivery_country = models.CharField(max_length=100)
 	delivery_pincode = models.CharField(max_length=100)
 
-#class Payment(models.Model):
-#	order = models.ForeignKey(Order,on_delete=models.CASCADE,default=None)
+class Payment(models.Model):
+	order = models.ForeignKey(Order,on_delete=models.CASCADE,default=None)
 
 class Cart(models.Model):
 	user = models.ForeignKey(User,on_delete=models.CASCADE,primary_key=True,default=None)
 	product = models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
 	cart_total = models.DecimalField(max_digits=10, decimal_places=2)
+"""

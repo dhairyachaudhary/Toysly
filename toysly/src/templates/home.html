@@ -35,7 +35,7 @@
 			{% for category in categories %}
 				<div class="fh5co-project masonry-brick" style="padding-left: 100px;">
 					<img style="max-width: 40vh" src="{{ category.category_image.url }}" style="text-align: center; margin-bottom: -100px;">
-					<a href="{% url 'store:toys' %}" style="padding-left: 110px; margin-top: -65px"><h2>{{ category.category_name }}</h2></a>
+					<a href="{% url 'store:category' category.category_slug %}" style="padding-left: 110px; margin-top: -65px"><h2>{{ category.category_name }}</h2></a>
 				</div>
 			 {% endfor %}
 			</div>

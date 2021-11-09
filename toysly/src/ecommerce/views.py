@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
-from ecommerce.models import Product
+from ecommerce.models import Product,Category
 
 def store_view(request):
     if request.method == "POST":
@@ -18,9 +18,10 @@ def store_view(request):
     return render(request,'ecommerce/index.html',{ 'products': products })
 
 
-def toys_view(request):
+def category_view(request, category):
     products = Product.objects.all().order_by('product_name');
-    return render(request,'ecommerce/toys.html',{ 'products': products })
+    category_name = Category.objects.filter(category_slug=category)[0].category_name;
+    return render(request,'ecommerce/category.html',{ 'products': products, 'category':category, 'category_name':category_name })
 
 @login_required(login_url="/accounts/login/")
 @permission_required("ecommerce.can_add_product", login_url="/accounts/become-seller/")
@@ -51,6 +52,6 @@ def add_product(request):
     else:
         context = {
             'product_details_form': forms.ProductForm(),
-            'product_images_form': forms.ProductImagesForm()
+            # 'product_images_form': forms.ProductImagesForm()
         }
     return render(request,'ecommerce/addproduct.html',context)

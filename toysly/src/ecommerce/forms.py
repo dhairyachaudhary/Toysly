@@ -6,7 +6,7 @@ class ProductForm(forms.ModelForm):
 	class Meta:
 		model = models.Product
 		fields = ['product_name','product_brand','product_category','product_price','product_description','product_image_1','product_image_2']
-
+"""
 class ProductImagesForm(forms.ModelForm):
 	class Meta:
 		model = models.ProductImage
@@ -15,3 +15,4 @@ class ProductImagesForm(forms.ModelForm):
             'image': ClearableFileInput(attrs={'multiple': True}),
             'product_image_name': forms.HiddenInput(),
         }
+"""

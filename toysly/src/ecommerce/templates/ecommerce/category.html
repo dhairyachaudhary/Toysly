@@ -38,11 +38,11 @@
 	<body>
 		<script src="static/js/modernizr-2.6.2.min.js"></script>
 
-
 		<div class="container-fluid pt70 pb70">
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+			<h1 style="font-size: 30px">{{ category_name }}</h1>
 			{% for product in products %}
-			{% if product.product_category.category_name == 'Toys' %}
+			{% if product.product_category.category_slug == category %}
 				<div class="fh5co-project masonry-brick">
 					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_1.url }}">
 					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_2.url }}">
@@ -61,11 +61,11 @@
         data-currency="USD" 
         data-order_id="{{payment.id}}" 
         data-buttontext="Pay with Razorpay"
-        data-name="Professional Cipher"
-        data-description="Django and Data Science"
-        data-image="https://example.com/your_logo.jpg" 
+        data-name="Pay with Razorpay"
+        data-description="Toysly"
+        data-image="https://d6xcmfyh68wv8.cloudfront.net/assets/razorpay-glyph.svg" 
         data-prefill.name="PC"
-        data-prefill.email="rishit19091@iiitd.ac.in" 
+        data-prefill.email="abc@email.com" 
         data-theme.color="#F37254"></script>
 
     </form>
