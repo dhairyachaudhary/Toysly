@@ -43,7 +43,6 @@ def becomeseller_view(request):
             seller_instance.user = request.user
             seller_instance.save()
             return redirect('store:store')
-        return redirect('accounts:login')
     else:
         seller_form = forms.SellerForm()
     return render(request,"accounts/becomeseller.html",{'seller_form':seller_form})

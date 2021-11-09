@@ -86,3 +86,6 @@ def add_product(request):
             # 'product_images_form': forms.ProductImagesForm()
         }
     return render(request,'ecommerce/addproduct.html',context)
+
+def success_view(request):
+    return render(request,'ecommerce/success.html')
