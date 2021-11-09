@@ -47,7 +47,7 @@
 					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_1.url }}">
 					<img style="width: 30vh; height: 30vh;" src="{{ product.product_image_2.url }}">
 					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
-					<h4 style="font-size: 10px">{{ product.product_category }} | ${{ product.product_price }}</h4>
+					<h4 style="font-size: 10px">{{ product.product_category }} | {{ product.product_price }} cents</h4>
 					<h5 style="font-size: 10px">{{ product.product_description }}</h5>
 					<form class="text-center border border-light p-5" actiom="success.html" method="POST">
         {% csrf_token %}

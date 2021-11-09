@@ -25,7 +25,7 @@ class Product(models.Model):
 	product_name = models.CharField(max_length=100)
 	product_brand = models.CharField(max_length=100)
 	product_category = models.ForeignKey(Category,on_delete=models.CASCADE,default=None)
-	product_description = models.TextField()
+	product_description = models.TextField(max_length=500)
 	product_price = models.DecimalField(max_digits=10, decimal_places=2)
 	product_image_1 = models.ImageField(upload_to=product_image_path1,default=None)
 	product_image_2 = models.ImageField(upload_to=product_image_path2,default=None)
@@ -46,7 +46,7 @@ class Order(models.Model):
 
 class Shipping_Details(models.Model):
 	order = models.ForeignKey(Order,on_delete=models.CASCADE,primary_key=True,default=None)
-	delivery_address = models.TextField()
+	delivery_address = models.TextField(max_length=500)
 	delivery_city = models.CharField(max_length=100)
 	delivery_state = models.CharField(max_length=100)
 	delivery_country = models.CharField(max_length=100)
