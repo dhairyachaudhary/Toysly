@@ -23,26 +23,33 @@ This repository contains:
 * This little readme
 
 
-## Setup 🤓
-This project uses-
-* [JDK 15.0.2](https://www.oracle.com/in/java/technologies/javase-jdk15-downloads.html)
-* [JavaFX 11.0.1](https://gluonhq.com/products/javafx/)
+## Dependencies 💻
+You need the following to work on this project-
+* [Python 3.10.0](https://www.python.org/downloads/)
+* [Django 3.2.9](https://www.djangoproject.com/download/)
+* [PostgreSQL](https://www.postgresql.org/download/)
+* [pgAdmin4](https://www.pgadmin.org/download/)
+* [psycopg2 2.9.1](https://pypi.org/project/psycopg2/)
+* [django otp 1.1.1](https://pypi.org/project/django-otp/)
 
-Gotta have this up and running. We worked on IntelliJ IDEA community version, and oh boy we do so love it (10/10 recommend). [This](https://openjfx.io/openjfx-docs/) article might prove helpful while setting up for any environment.
 
 
 ## Contributions 👽
-Contributions are more than welcome, we'd love to learn from you- we're just cute little undergrads! Please see the contribution guidelines, make sure you understand the code and have the dependencies ready to go.
+Contributions are welcome :) Please see the contribution guidelines, make sure you understand the code and have the dependencies ready to go.
 
 
 ## Need Help? 🤝
-Feel free to make bug reports on our issues. You can reach out to either of us in case you need further assistance. 
+Feel free to make bug reports on our issues. You can reach out to us in case you need further assistance. 
 
 *Contact us:*
 
-🎸 Rishit: rishit19091@iiitd.ac.in
-
 🎨 Dhairya: dhairya19035@iiitd.ac.in
+
+👴🏻 Karan: karan19366@iiitd.ac.in
+
+🧠 Kirthana: kirthana19053@iiitd.ac.in
+
+💲  Rishit: rishit19091@iiitd.ac.in
 
 
 *****
@@ -64,5 +71,5 @@ Tons of help and debugging- the folks over at https://stackoverflow.com/
 *****
 
 <p align="center">
-Made with ❤️ by Team RnD
+Made with ❤️ by KMnO4
 </p>
