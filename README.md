@@ -1,5 +1,5 @@
 # Toysly
-#### Toysly is an e-commerce website for selling books, toys and puzzles 🧸🧩. This is our final project for CSE 345: Foundations to Computer Security.
+#### Toysly is an e-commerce platform for selling books, toys and puzzles 🧸🧩. This is our final project for CSE 345: Foundations to Computer Security.
 
 
 <p align="center">
@@ -9,19 +9,22 @@
 
 
 
-## About the Project 🌌
-This is our take on the hit game that was on every other phone a few years back. The objective of the game is to collect stars (that can be used to revive the player and buy perks) while avoiding the fast moving obstancles. The color of the ball keeps changing and more and more difficult obstancles are introduced as the player progresses. After losing, the player can be revived for some coins or by watching a video.
+## About the Project 🛒
+An e-commerce website is a software system developed primarily to facilitate buying and selling of products between users.  Our course project's aim was to develop a Secure e-Commerce website that follows global standards and laws. 
 
 
-We have added two modes- the classic 'classic mode' and our 'frenzy mode'. The classic mode is very similar to the original game, while the (aptly titled) frenzy mode lands the player in a new environment with low visibility, weaker gravity and rapidly increasing speed. We have also added a few new features like a ball shop with balls of different sizes, an option to use a headstart, a competitive leaderboard, and support for multiple users with multiple user login. Have fun!
-
-## About this Repo 🛰️
+## About this Repo 🛍️
 This repository contains:
-* The UML diagrams (Have a look to get a nice overview of things)
-* The static GUI (present in a zipped folder)
-* src folder for the project. This contains the asset and sample folder.
-* This little readme
-
+* Src folder
+  * Accounts - Templates, Models and code for the different accounts and their functionalities
+  * Assets - CSS, JS, and Images
+  * Ecommerce - Templates, Models and code for the store and store categories
+  * Media - Data (Category and product images)
+  * Mysite - Setup related files
+  * Razor - Files for the payment gateway
+  * Templates - Templates, Models and code for the base website
+* License
+* README
 
 ## Dependencies 💻
 You need the following to work on this project-
@@ -34,11 +37,11 @@ You need the following to work on this project-
 
 
 
-## Contributions 👽
+## Contributions 🤝
 Contributions are welcome :) Please see the contribution guidelines, make sure you understand the code and have the dependencies ready to go.
 
 
-## Need Help? 🤝
+## Need Help? 🆘
 Feel free to make bug reports on our issues. You can reach out to us in case you need further assistance. 
 
 *Contact us:*
@@ -52,19 +55,8 @@ Feel free to make bug reports on our issues. You can reach out to us in case you
 💲  Rishit: rishit19091@iiitd.ac.in
 
 
-*****
-
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/55681207/107292614-27c52b00-6a90-11eb-8e9a-a082e2f5f4c6.png">
-</p>
-
-
-*****
 
 ### Credits:
-
-Sounds- https://www.sounds-resource.com/mobile/colorswitch/sound/7826/
 
 Tons of help and debugging- the folks over at https://stackoverflow.com/
 
