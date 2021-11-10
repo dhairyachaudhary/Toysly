@@ -41,6 +41,9 @@
                 <li style="font-size: 15px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
 
 				{% endif %}
+				{% if user.is_superuser %}
+				<li style="font-size: 15px;"><a href="{% url 'store:logs' %}" class="highlight">Get transaction logs</a></li>
+				{% endif %}
 			</ul>
 		</nav>
 		</div>
