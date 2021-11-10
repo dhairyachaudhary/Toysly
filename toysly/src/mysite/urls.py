@@ -37,7 +37,7 @@ for model_cls, model_admin in admin.site._registry.items():
 
 urlpatterns = [
     path('admin/', otp_admin_site.urls),
-    path('dadmin/', admin.site.urls),
+    path('daddymin/', admin.site.urls),
     path('',views.home,name="home"),
     path('about/',views.about,name="about"),
     path('store/', include('ecommerce.urls')),

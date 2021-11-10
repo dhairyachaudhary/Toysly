@@ -41,13 +41,13 @@
 		<div class="container-fluid pt70 pb70">
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
 			<h3 style="font-size: 25px; text-align: center; padding-left: 70px;">{{ category_name }}</h3>
-			{% for product in products %}
+			{% for product,price in prices.items %}
 			{% if product.product_category.category_slug == category %}
 				<div class="fh5co-project masonry-brick">
 					<img style="width: 38vh; height: 38vh; ; padding-bottom: 10px" src="{{ product.product_image_1.url }}">
 					<img style="width: 38vh; height: 38vh;" src="{{ product.product_image_2.url }}">
 					<h2 style="font-size: 15px">{{ product.product_name }}| {{ product.product_brand }}</h2>
-					<h4 style="font-size: 10px">{{ product.product_category }} | {{ product.product_price }} cents</h4>
+					<h4 style="font-size: 10px">{{ product.product_category }} |  ₹ {{ price }}</h4>
 					<h5 style="font-size: 10px">{{ product.product_description }}</h5>
 					<form class="text-center border border-light p-5" action="{% url 'store:success' %}" method="POST">
         {% csrf_token %}
@@ -57,7 +57,7 @@
         data-amount="{{ product.product_price}}"
         x=float(data-amount)*100
         data-amount=str(x) 
-        data-currency="USD" 
+        data-currency="INR" 
         data-order_id="{{payment.id}}" 
         data-buttontext="Pay with Razorpay"
         data-name="Pay with Razorpay"

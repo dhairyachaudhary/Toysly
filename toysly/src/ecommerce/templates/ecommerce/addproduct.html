@@ -18,14 +18,16 @@
 	</head>
 
 
-	<h3 style="font-size: 25px; text-align: center; padding-left: 75px; padding-top: 90px; padding-bottom:35px">Add Product</h3>
-
+	<h3 style="font-size: 25px; text-align: center; padding-left: 75px; padding-top: 90px; padding-bottom:-10px">Add Product</h3>
 	<div class="container" style="margin: auto;
 width: 35%;
 padding: 10px; padding-left: 50px;">
 	<div class="add-product container">
 		<form class="add-form container" action="{% url 'store:add_product' %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
+			{% if flag == 1 %}
+			<h4 style="color: red">Product price should be greater than 1 Rupee</h4>
+			{% endif %}
 			{{ product_details_form.as_p }}
 			<div>
 			<input style="background-color: lightseagreen; width: 80px; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; white-space: nowrap; margin-top: -65px; margin-top: 15px;" type="submit" value="Add">
