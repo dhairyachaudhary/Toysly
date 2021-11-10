@@ -36,6 +36,7 @@
 				<li style="font-size: 15px;"><a href="{% url 'about' %}" class="highlight">About</a></li>
 
 				{% else %}
+				<li style="font-size: 15px;"><a href="{% url 'store:store' %}" class="highlight">Store</a></li>
 				<li style="font-size: 15px;"> <a href="{% url 'accounts:login' %}">Login</a></li> 
                 <li style="font-size: 15px;"><a href="{% url 'accounts:signup' %}">Signup</a></li>
                 <li style="font-size: 15px;"><a href="{% url 'about' %}" class="highlight">About</a></li>

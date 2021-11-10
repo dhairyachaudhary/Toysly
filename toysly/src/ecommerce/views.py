@@ -104,9 +104,17 @@ def success_view(request):
     date_time = dt.datetime.utcfromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
     resp['created_at']=time.ctime(resp['created_at'])
     print(os.listdir())
+    dict1={}
+    dict1['product_id']=str(product_id)
+    dict1['user_id']=str(user_id)
+    dict1['id']=resp['id']
+    dict1['entity']=resp['entity']
+    dict1['amount']=resp['amount']
+    dict1['currency']=resp['currency']
+    dict1['created_at']=resp['created_at']
     with open('ecommerce/templates/ecommerce/transactions.log', 'a') as convert_file:
-        convert_file.write("{'product_id':"+str(product_id)+"'user_id':"+str(user_id)+"}")
-        convert_file.write(json.dumps(resp))
+        # convert_file.write("{'product_id':"+str(product_id)+"'user_id':"+str(user_id)+"}")
+        convert_file.write(json.dumps(dict1))
         convert_file.write("\n\n")
     product = Product.objects.filter(id=product_id)[0]
     payment_instance = Payment.objects.create(payment_user=user,payment_product=product,payment_time=date_time)

@@ -52,6 +52,7 @@
 					<form class="text-center border border-light p-5" action="{% url 'store:success' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="product" value="{{ product.id }}">
+        {% if user.is_authenticated %}
         <script src="https://checkout.razorpay.com/v1/checkout.js" 
         data-key="rzp_test_ynwI52voLx0Ltq" 
         data-amount="{{ product.product_price}}"
@@ -66,7 +67,9 @@
         data-prefill.name="PC"
         data-prefill.email="abc@email.com" 
         data-theme.color="#FFFF00"></script>
-
+        {% else %}
+       		<h4>Please login to pay!</h4>
+        {% endif %}
     </form>
 				</div>
 			{% endif %}
