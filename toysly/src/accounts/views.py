@@ -1,17 +1,24 @@
+from django.forms.fields import EmailField
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
 import math, random
 from . import forms
+
+
+emailid = ''
 
 def signup_view(request):
     if request.method == 'POST':
         form = forms.SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        if form.is_valid() and len(User.objects.filter(email=emailid)) == 0:
+            user = form.save(commit=False)
+            user.email = emailid
+            user.save()
             login(request,user)
             return redirect('store:store')
     else:
@@ -23,6 +30,8 @@ def login_view(request):
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
             user = form.get_user()
+            if user.email != emailid:
+                return render(request,"accounts/login.html",{'form':form})
             login(request, user)
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
@@ -60,6 +69,8 @@ def generateOTP() :
 
 def send_otp(request):
      email=request.POST.get("email")
+     global emailid 
+     emailid = email
      o=generateOTP()
      htmlgen = '<p>Your OTP is '+o+'</p>'
      send_mail('OTP request',o,'<your gmail id>',[email], fail_silently=False, html_message=htmlgen)
