@@ -6,13 +6,13 @@ from . import forms
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = forms.SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request,user)
             return redirect('store:store')
     else:
-        form = UserCreationForm()
+        form = forms.SignUpForm()
     return render(request,"accounts/signup.html",{'form':form})
 
 def login_view(request):
