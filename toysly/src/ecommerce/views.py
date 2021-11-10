@@ -4,8 +4,10 @@ from django.contrib.auth.decorators import login_required,permission_required
 from . import forms
 import razorpay
 import time
+import datetime as dt
 from ecommerce.models import Product,Category,Payment
 import json
+import os
 
 def check_search(query, item):
     query = query.lower()
@@ -98,12 +100,23 @@ def success_view(request):
     client = razorpay.Client(auth=("rzp_test_ynwI52voLx0Ltq", "IhbQPZoMLmDn2dgmRhhI7IpU"))
     payment_id = val['razorpay_payment_id']
     resp = client.payment.fetch(payment_id)
+    timestamp = resp['created_at']
+    date_time = dt.datetime.utcfromtimestamp(timestamp).strftime("%Y-%m-%d %H:%M:%S")
     resp['created_at']=time.ctime(resp['created_at'])
-    with open('transaction_logs.txt', 'a') as convert_file:
+    print(os.listdir())
+    with open('ecommerce/templates/ecommerce/transactions.log', 'a') as convert_file:
         convert_file.write("{'product_id':"+str(product_id)+"'user_id':"+str(user_id)+"}")
         convert_file.write(json.dumps(resp))
         convert_file.write("\n\n")
-    product = Product.objects.filter(id=product_id)[0];
-    payment_instance = Payment.objects.create(payment_user=user,payment_product=product,payment_time=resp['created_at'])
+    product = Product.objects.filter(id=product_id)[0]
+    payment_instance = Payment.objects.create(payment_user=user,payment_product=product,payment_time=date_time)
     payment_instance.save()
     return render(request,'ecommerce/success.html')
+
+
+def log_view(request):
+    if request.user.is_superuser:
+        pass
+    else:
+        return redirect('home')
+        
