@@ -30,6 +30,8 @@ def search_view(request):
 """
 def store_view(request):
     if request.method == "POST":
+        if not request.user.is_authenticated:
+            return redirect('accounts:login')
         name = request.POST.get('name')
         amount = 50000
 
