@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ecommerce',
     'accounts',
-    'authority',
     'django_otp',
     'django_otp.plugins.otp_totp',
 ]

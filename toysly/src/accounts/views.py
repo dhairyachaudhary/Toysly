@@ -51,12 +51,6 @@ def becomeseller_view(request):
     return render(request,"accounts/becomeseller.html",{'seller_form':seller_form})
 
 
-
-
-
-def authority(request):
-     return render(request, "authority/authority.html")
-
 def generateOTP() :
      digits = "0123456789"
      OTP = ""
@@ -65,8 +59,7 @@ def generateOTP() :
      return OTP
 
 def send_otp(request):
-     email=request.POST.get   ("email")
-     print(email)
+     email=request.POST.get("email")
      o=generateOTP()
      htmlgen = '<p>Your OTP is '+o+'</p>'
      send_mail('OTP request',o,'<your gmail id>',[email], fail_silently=False, html_message=htmlgen)
