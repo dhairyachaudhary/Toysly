@@ -116,7 +116,6 @@ def success_view(request):
 
 def log_view(request):
     if request.user.is_superuser:
-        pass
-    else:
-        return redirect('home')
+        return render(request,'ecommerce/transactions.log',content_type='plain/text')
+    return redirect('home')
         
