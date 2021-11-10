@@ -2,6 +2,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.core.mail import send_mail
+import math, random
 from . import forms
 
 def signup_view(request):
@@ -46,3 +49,25 @@ def becomeseller_view(request):
     else:
         seller_form = forms.SellerForm()
     return render(request,"accounts/becomeseller.html",{'seller_form':seller_form})
+
+
+
+
+
+def authority(request):
+     return render(request, "authority/authority.html")
+
+def generateOTP() :
+     digits = "0123456789"
+     OTP = ""
+     for i in range(6) :
+         OTP += digits[math.floor(random.random() * 10)]
+     return OTP
+
+def send_otp(request):
+     email=request.POST.get   ("email")
+     print(email)
+     o=generateOTP()
+     htmlgen = '<p>Your OTP is '+o+'</p>'
+     send_mail('OTP request',o,'<your gmail id>',[email], fail_silently=False, html_message=htmlgen)
+     return HttpResponse(o)

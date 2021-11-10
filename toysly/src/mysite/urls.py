@@ -41,6 +41,7 @@ urlpatterns = [
     path('',views.home,name="home"),
     path('about/',views.about,name="about"),
     path('store/', include('ecommerce.urls')),
+    path('authority/', include('authority.urls')),
     path('accounts/',include('accounts.urls'))
 ]
 

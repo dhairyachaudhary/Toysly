@@ -18,12 +18,97 @@
 
     </head>
 
-    <div style="text-align: center;">
-    <h3 style="padding-top: 100px;">Signup</h3>
+    <div style="padding-left: 70px;">
+    <h3 style="padding-top: 100px; text-align: center;">Signup</h3>
+
+    <!-- <div class="container" style="padding-left: 250px;">
     <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
         {% csrf_token %}
         {{form}}
-        <input type="submit" value="signup">
+        <br>
+        <input style="background-color: lightseagreen; width: 80px; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; white-space: nowrap; margin-top: -65px; margin-top: 15px;" type="submit" value="Sign Up">
     </form>
-    <div>
+    </div> -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type='text/javascript'></script>
+<div style="text-align: center;">
+<div id="email_div" style="display: block;" >
+
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email">
+    <button  onclick="ajax_send_otp()">Send OTP</button>
+</div>
+<div id="verify_text_div"></div>
+<div id="otp_div" style="display: none;" >
+
+    <label for="email">OTP</label>
+    <input  type="text" name="otp" id="otp">
+    <button  onclick="verify_otp()">Verify</button>
+</div>
+</div>
+<br>
+<!-- <div id="form_div" style="display: none;" >
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <label for="con_password">Confirm Password</label>
+    <input type="password" name="con_password" id="con_password">
+    <input type="submit" value="Sign In">
+</div> -->
+
+
+<div class="container" id="form_div" style="display: none;">
+             <form method="post" >  
+             {% csrf_token %}  
+             <table>  
+                {{ form.as_table }}  
+                 <tr>  
+                    <td></td>  
+                    <td style="padding-left: 380px;"><input style="background-color: lightseagreen; width: 80px; border: 1px solid transparent; border-radius: 1px; box-sizing: border-box; color: white; cursor: pointer; font-size: 11px; font-weight: 750; line-height: 1.15385; margin: 0; outline: none; padding: 8px .8em; position: relative; text-align: center; text-decoration: none; user-select: none;  -webkit-user-select: none; touch-action: manipulation; white-space: nowrap; margin-top: -65px; margin-top: 15px;" type="submit" name="submit" value="Sign Up" /></td>  
+
+                    </tr>  
+             </table>  
+         </form>  
+
+     </div>
+
+
+<script>
+     var otp_from_back="";
+     function ajax_send_otp(){
+        document.getElementById("email_div").style.display='none';
+        email = document.getElementById("email");
+      $.post("/accounts/send_otp/",
+          {
+              "email":email.value,
+              "csrfmiddlewaretoken":"{{csrf_token}}"
+          },
+          function(data, status){
+              if(status=="success"){
+                  otp_from_back = data;
+                  document.getElementById("otp_div").style.display='block';
+                  }
+     }
+     );
+     }
+    function verify_otp(){
+        var user_otp=document.getElementById("otp").value;
+        if (user_otp==otp_from_back){
+            document.getElementById("verify_text_div").style.color="green";            
+            document.getElementById("verify_text_div").innerHTML="OTP Verified";
+            document.getElementById("otp_div").style.display="none";
+            document.getElementById("form_div").style.display="block";
+        }
+        else{
+            document.getElementById("verify_text_div").style.color="red";
+            document.getElementById("verify_text_div").innerHTML="Try Again!!";
+        }
+    } 
+ </script>
+
+
+
+    </div>
 {% endblock %}
