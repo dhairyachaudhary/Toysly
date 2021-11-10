@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> Toysly </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../../static/css/styles.css">
+	<link rel="stylesheet" href="../../static/css/style.css">
+	<link rel="stylesheet" href="../../static/css/animate.css">
+	<link rel="stylesheet" href="../../static/css/icomoon.css">
+	<link rel="stylesheet" href="../../static/css/bootstrap.css">
+	<link rel="stylesheet" href="../../static/css/superfish.css">
+	<link rel="stylesheet" href="../../static/css/flexslider.css">
+
+	</head>
+
+
+	<div class="add-product" style="text-align: center;">
+		<h3 style="padding-top: 100px; text-align: center;">Edit User Info</h3>
+	</div>
+	<div style="text-align: center;" class="container"> 
+	<form action="{% url 'edit' %}" method="post">
+	{% csrf_token %}
+  {{form}}
+  <input type="submit" value="Submit">
+</form> 
+
+<p>Click on the "Submit" button to confirm.</p>
+	</div>
+{% endblock %}
