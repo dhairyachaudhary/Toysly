@@ -41,7 +41,8 @@ urlpatterns = [
     path('',views.home,name="home"),
     path('about/',views.about,name="about"),
     path('store/', include('ecommerce.urls')),
-    path('accounts/',include('accounts.urls'))
+    path('accounts/',include('accounts.urls')),
+    path('edit/',views.edit,name="edit")
 ]
 
 urlpatterns += staticfiles_urlpatterns()
