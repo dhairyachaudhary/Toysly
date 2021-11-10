@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-px7lj4-24w8obcvap+)b=r#vmcl8i!@26opl_y0a6_qtyw+1c4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','192.168.2.246']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'toysly_db',
         'USER': 'toysly_admin',
-        'PASSWORD': 'password',
+        'PASSWORD': 'tT&OxQC0NJox',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -152,3 +152,7 @@ EMAIL_HOST_PASSWORD = "notkaran"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+os.environ['wsgi.url_scheme'] = 'https'
