@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-px7lj4-24w8obcvap+)b=r#vmcl8i!@26opl_y0a6_qtyw+1c4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','192.168.2.246']
 
@@ -127,9 +127,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
-)
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Default primary key field type
@@ -142,8 +144,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST_USER = 'businesstoysly@gmail.com' 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587 
-EMAIL_USE_TLS = True 
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = "notkaran"
 
 
@@ -153,6 +155,6 @@ EMAIL_HOST_PASSWORD = "notkaran"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
 os.environ['wsgi.url_scheme'] = 'https'

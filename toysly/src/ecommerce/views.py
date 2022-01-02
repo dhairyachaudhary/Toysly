@@ -68,7 +68,7 @@ def category_view(request, category):
     return render(request,'ecommerce/category.html',{ 'prices': prices, 'category':category, 'category_name':category_name })
 
 @login_required(login_url="/accounts/login/")
-@permission_required("ecommerce.can_add_product", login_url="/accounts/become-seller/")
+@permission_required("ecommerce.add_product", login_url="/accounts/become-seller/")
 def add_product(request):
     if request.method=='POST':
         context = {

@@ -1,0 +1,16 @@
+h1, h2, h3, h4, h5{
+    font-weight: normal;
+    margin: 0;
+}
+
+a, a:hover, a:visited{
+    text-decoration: none;
+}
+
+.center{
+    text-align: center;
+}
+
+.im{
+    max-width: 30%;
+}
