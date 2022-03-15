@@ -1,5 +1,5 @@
 # Toysly
-#### Toysly is an e-commerce platform for selling books, toys and puzzles 🧸🧩. This is our final project for CSE 345: Foundations to Computer Security.
+#### Toysly is an e-commerce platform for selling books, toys and puzzles 🧸🧩. This is our final project for CSE 345: Foundations to Computer Security. [Link to demo video](https://drive.google.com/file/d/1JurkRTM0ZsG0hHV1MYfGWWKmAifAFovt/view).
 
 
 <p align="center">
